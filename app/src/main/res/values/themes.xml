@@ -1,0 +1,26 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.RexaPixaKT" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/color_primary</item>
+        <item name="colorPrimaryVariant">@color/color_primary_dark</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondaryVariant">@color/teal_700</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="m">@color/white</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="m">true</item>
+        <!-- Hide action bar -->
+        <item name="windowActionBar">false</item>
+    </style>
+
+    <style name="RexaPexa.Field" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+        <item name="helperTextTextColor">@color/color_primary</item>
+    </style>
+
+    <style name="RexaPexa.Field.Required">
+        <item name="helperText">@string/required</item>
+    </style>
+</resources>

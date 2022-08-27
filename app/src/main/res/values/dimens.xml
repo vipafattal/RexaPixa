@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="form_padding">28dp</dimen>
+    <dimen name="field_spaces">30dp</dimen>
+    <dimen name="submit_button_space">16dp</dimen>
+    <dimen name="progressBarThickness">10dp</dimen>
+
+    <dimen name="roundedAvatarImage">20dp</dimen>
+</resources>

@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">RexaPixa</string>
+
+    <string name="logging_in">Logging you in…</string>
+    <string name="registering_user">Creating your account…</string>
+    <string name="login">Login</string>
+    <string name="password">Password</string>
+    <string name="required">Required</string>
+    <string name="email">Email</string>
+    <string name="register">register</string>
+    <string name="age">Age</string>
+    <string name="create"><u>CREATE</u></string>
+    <string name="don_t_have_account">Don\'t have account?</string>
+    <string name="welcome">Welecome to RexaPexa</string>
+    <string name="already_have_account">Already have account?</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="login_in_or_create_account">Please login into your account or create one</string>
+    <string name="loading">Loading...</string>
+</resources>
