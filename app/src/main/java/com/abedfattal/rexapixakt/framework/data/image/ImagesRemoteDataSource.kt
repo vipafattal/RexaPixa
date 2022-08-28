@@ -1,4 +1,4 @@
-package com.abedfattal.rexapixakt.framework.data
+package com.abedfattal.rexapixakt.framework.data.image
 
 import androidx.paging.PagingSource
 import androidx.paging.PagingState

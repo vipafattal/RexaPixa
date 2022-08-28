@@ -3,7 +3,7 @@ package com.abedfattal.rexapixakt.ui.home
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.paging.cachedIn
-import com.abedfattal.rexapixakt.framework.data.ImagesRepository
+import com.abedfattal.rexapixakt.framework.data.image.ImagesRepository
 
 class HomeViewModel(private val imagesRepository: ImagesRepository) : ViewModel() {
 
