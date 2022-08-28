@@ -4,6 +4,7 @@ plugins {
     id 'kotlin-kapt'
     id 'kotlinx-serialization'
     id 'androidx.navigation.safeargs.kotlin'
+    id 'kotlin-parcelize'
 }
 
 android {
@@ -70,19 +71,19 @@ dependencies {
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     kapt roomDB.kapt
 
+    implementation paging.runtime
+    implementation paging.rx
+
     //Retrofit + converter-gson + Ok-http + coroutines-adapter
     implementation retrofit.core
     implementation retrofit.converter
     implementation retrofit.interceptor
     implementation retrofit.coroutines
-
-    implementation frameworks.lottie
-
     //Lottie
     implementation koin.android
 
     //Glide
-    implementation glide.core
+    implementation glide.runtime
     kapt glide.kapt
 
     //Testing

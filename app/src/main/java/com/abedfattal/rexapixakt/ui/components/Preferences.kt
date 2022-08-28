@@ -19,13 +19,13 @@ object Preferences {
 
     val savedUser: Flow<User?> = app.dataStore.data.map {
         val jsonUser = it[USERS_KEY]
-        if (jsonUser != null) User.fromJson(jsonUser)
+        if (jsonUser != null && jsonUser.isNotEmpty()) User.fromJson(jsonUser)
         else null
     }
 
-    suspend fun saveUser(user: User) {
+    suspend fun saveUser(user: User?) {
         app.dataStore.edit {
-            it[USERS_KEY] = user.toJson()
+            it[USERS_KEY] = user?.toJson() ?: ""
         }
     }
 }

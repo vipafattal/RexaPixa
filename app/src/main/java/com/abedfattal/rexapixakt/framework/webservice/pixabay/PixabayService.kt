@@ -7,16 +7,24 @@ import retrofit2.http.Query
 
 interface PixabayService {
 
+    companion object {
+        const val PAGE_SIZE = 20
+    }
+
     @GET("api")
     suspend fun getImages(
         @Query("key")
         key: String = TOKEN,
         @Query("q")
-        search:String? = null,
+        search: String? = null,
         @Query("image_type")
-        imageType:String = "Photo",
+        imageType: String = "Photo",
         @Query("per_page")
-        perPage:Int = 20,
+        perPage: Int = PAGE_SIZE,
+        @Query("safesearch")
+        safeMode: Boolean = true,
+        @Query("page")
+        page: Int
     ): Response<PixabayModels.ImagesResult>
 
 }

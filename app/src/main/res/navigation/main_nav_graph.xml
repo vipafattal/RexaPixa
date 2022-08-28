@@ -9,5 +9,28 @@
         tools:layout="@layout/fragment_home"
         android:id="@+id/homeFragment"
         android:name="com.abedfattal.rexapixakt.ui.home.HomeFragment"
-        android:label="HomeFragment" />
+        android:label="HomeFragment" >
+        <action
+            android:id="@+id/action_homeFragment_to_imageDetailsFragment"
+            app:destination="@id/imageDetailsFragment"
+            app:enterAnim="@android:anim/fade_in" />
+        <action
+            android:id="@+id/action_homeFragment_to_myAccountDialog"
+            app:destination="@id/myAccountDialog"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out" />
+    </fragment>
+    <fragment
+        tools:layout="@layout/fragment_image_details"
+        android:id="@+id/imageDetailsFragment"
+        android:name="com.abedfattal.rexapixakt.ui.imagedetail.ImageDetailsFragment"
+        android:label="ImageDetailsFragment" >
+        <argument
+            android:name="image"
+            app:argType="com.abedfattal.rexapixakt.models.domain.Image" />
+    </fragment>
+    <dialog
+        android:id="@+id/myAccountDialog"
+        android:name="com.abedfattal.rexapixakt.ui.myaccount.MyAccountDialog"
+        android:label="MyAccountDialog" />
 </navigation>

@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="image"
+            type="com.abedfattal.rexapixakt.models.domain.Image" />
+
+        <variable
+            name="vm"
+            type="com.abedfattal.rexapixakt.ui.imagedetail.ImageDetailsViewModel" />
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".ui.imagedetail.ImageDetailsFragment">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardView"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="16dp"
+                android:background="?selectableItemBackground"
+                android:onClick="@{()->vm.pop()}"
+                app:cardBackgroundColor="#686868"
+                app:cardCornerRadius="4dp"
+                app:cardElevation="0dp"
+                app:layout_constraintStart_toStartOf="@+id/guideline4"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_arrow_back"
+                    app:tint="@color/white" />
+
+            </androidx.cardview.widget.CardView>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="16dp"
+                android:url="@{image.largeImageURL}"
+                app:layout_constraintBottom_toTopOf="@+id/guideline3"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cardView"
+                tools:src="@tools:sample/backgrounds/scenic" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.65" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="16dp" />
+
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@id/chip4" />
+
+            <TextView
+                android:id="@+id/tags"
+                style="@style/TextAppearance.AppCompat.Headline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:text="@{image.tags}"
+                app:layout_constraintStart_toStartOf="@+id/guideline4"
+                app:layout_constraintTop_toTopOf="@+id/guideline3"
+                tools:text="photo" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chip4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:clickable="false"
+                android:text="@{image.imageWidth + String.valueOf('x') + image.imageHeight}"
+                app:layout_constraintStart_toStartOf="@+id/guideline4"
+                app:layout_constraintTop_toBottomOf="@+id/tags"
+                tools:text="1080x800" />
+
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chip5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:clickable="false"
+                android:text="@{image.type}"
+                app:chipIcon="@drawable/ic_image"
+                app:iconStartPadding="4dp"
+                app:layout_constraintBottom_toBottomOf="@+id/chip4"
+                app:layout_constraintStart_toEndOf="@+id/chip4"
+                app:layout_constraintTop_toTopOf="@+id/chip4"
+                tools:text="photo" />
+
+            <TextView
+                android:id="@+id/chip6"
+                style="@style/TextAppearance.AppCompat.Subhead"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="@{@string/upload_by + image.user}"
+                app:layout_constraintStart_toStartOf="@+id/guideline4"
+                app:layout_constraintTop_toTopOf="@+id/guideline5"
+                tools:text="photo" />
+
+
+            <androidx.core.widget.NestedScrollView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/chip6"
+                app:layout_constraintTop_toBottomOf="@+id/chip6">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chip7"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:clickable="false"
+                        android:text="@{String.valueOf(image.views)}"
+                        app:chipBackgroundColor="#00FFFFFF"
+                        app:chipIcon="@drawable/ic_seen"
+                        app:iconStartPadding="4dp"
+                        app:layout_constraintStart_toStartOf="@+id/chip6"
+                        app:layout_constraintTop_toBottomOf="@+id/chip6"
+                        tools:text="photo" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chip8"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:clickable="false"
+                        android:text="@{String.valueOf(image.likes)}"
+                        app:chipBackgroundColor="#00FFFFFF"
+                        app:chipIcon="@drawable/ic_favorite"
+                        app:chipIconTint="#C2185B"
+                        app:iconStartPadding="4dp"
+                        app:layout_constraintStart_toEndOf="@+id/chip7"
+                        app:layout_constraintTop_toTopOf="@+id/chip7"
+                        tools:text="1500" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chip9"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:clickable="false"
+                        android:text="@{String.valueOf(image.downloads)}"
+                        app:chipBackgroundColor="#00FFFFFF"
+                        app:chipIcon="@drawable/ic_download"
+                        app:chipIconTint="#1976D2"
+                        app:iconStartPadding="4dp"
+                        app:layout_constraintStart_toEndOf="@+id/chip8"
+                        app:layout_constraintTop_toTopOf="@+id/chip7"
+                        tools:text="15" />
+
+                    <com.google.android.material.chip.Chip
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:clickable="false"
+                        android:text="@{String.valueOf(image.comments)}"
+                        app:chipBackgroundColor="#00FFFFFF"
+                        app:chipIcon="@drawable/ic_comment"
+                        app:chipIconTint="#388E3C"
+                        app:iconStartPadding="4dp"
+                        app:layout_constraintStart_toEndOf="@+id/chip9"
+                        app:layout_constraintTop_toTopOf="@+id/chip7"
+                        tools:text="15" />
+
+                </LinearLayout>
+
+            </androidx.core.widget.NestedScrollView>
+
+
+            <View
+                android:id="@+id/divider"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="8dp"
+                android:background="#F3F1F1"
+                app:layout_constraintBottom_toTopOf="@+id/guideline5"
+                app:layout_constraintTop_toTopOf="@+id/guideline5" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+</layout>

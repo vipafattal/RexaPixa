@@ -10,5 +10,8 @@
     <color name="white">#FFFFFFFF</color>
 
     <color name="colorAlert">#D50000</color>
+    <color name="status_bar_color">#FFFFFFFF</color>
+
+    <color name="dark_background_color">#1d1d1b</color>
 
 </resources>

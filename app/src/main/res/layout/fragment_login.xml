@@ -18,6 +18,7 @@
         tools:context=".ui.newuser.login.LoginFragment">
 
         <com.google.android.material.progressindicator.LinearProgressIndicator
+            android:id="@+id/linearProgressIndicator"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:indeterminate="true"
@@ -97,11 +98,33 @@
             android:layout_marginTop="@dimen/field_spaces"
             android:enabled="@{vm.canSubmitForm}"
             android:onClick="@{()->vm.submit()}"
-            android:text="@string/register"
+            android:text="@string/login"
             app:layout_constraintEnd_toEndOf="@+id/passwordContainer"
             app:layout_constraintStart_toStartOf="@+id/passwordContainer"
             app:layout_constraintTop_toBottomOf="@+id/passwordContainer" />
 
+        <ImageButton
+            android:id="@+id/imageButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="24dp"
+            android:background="?selectableItemBackgroundBorderless"
+            android:onClick="@{()->vm.pop()}"
+            android:src="@drawable/ic_arrow_back"
+            app:layout_constraintStart_toStartOf="@+id/emailContainer"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <TextView
+            style="@style/TextAppearance.AppCompat.Subhead"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="@string/login"
+            app:layout_constraintBottom_toBottomOf="@+id/imageButton"
+            app:layout_constraintStart_toEndOf="@+id/imageButton"
+            app:layout_constraintTop_toTopOf="@+id/imageButton" />
 
         <LinearLayout
             android:layout_marginTop="12dp"

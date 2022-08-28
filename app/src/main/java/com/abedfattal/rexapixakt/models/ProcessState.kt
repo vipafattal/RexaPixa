@@ -13,6 +13,13 @@ import com.abedfattal.rexapixakt.models.ProcessState.*
  */
 sealed class ProcessState<T> {
 
+
+    /*
+       Denote that this process cloud be final state.
+     */
+    sealed class CompletableProcess<T> : ProcessState<T>()
+
+
     /**
      * [Loading] mean's the process loading data. e.g. waiting for remote API response.
      */
@@ -21,14 +28,11 @@ sealed class ProcessState<T> {
     /**
      * When the process [Success] it should hold [data]. e.g. remote API response data.
      */
-    data class Success<T>(val data: T? = null, val error: Exception? = null) : ProcessState<T>() {
-
-    }
-
+    data class Success<T>(val data: T? = null, val error: Exception? = null) : CompletableProcess<T>()
     /**
      * When the process [Failed] for a [error] you can use [friendlyMsg] to show the user a msg why it's failed.
      */
-    data class Failed<T>(val error: String?, @StringRes val friendlyMsg: Int) : ProcessState<T>()
+    data class Failed<T>(val error: String?, @StringRes val friendlyMsg: Int) : CompletableProcess<T>()
 
     /**
      * Used by library to transform the current process [T] type to another.
@@ -41,5 +45,6 @@ sealed class ProcessState<T> {
             is Failed -> Failed(error, friendlyMsg)
         }
     }
+
 
 }

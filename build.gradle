@@ -18,6 +18,7 @@ buildscript {
         lifecycle_version = '2.5.1'
         room_version = "2.4.3"
         nav_version = '2.5.1'
+        paging_version = "3.1.1"
 
         //Retrofit
         retrofit_version = '2.9.0'
@@ -71,19 +72,19 @@ buildscript {
                 ui      : "androidx.navigation:navigation-ui-ktx:$nav_version"
         ]
 
+        paging = [
+                runtime: "androidx.paging:paging-runtime:$paging_version",
+                rx     : "androidx.paging:paging-rxjava3:$paging_version",
+        ]
+
         koin = [
                 android: "io.insert-koin:koin-android:$koin_version",
                 compose: "io.insert-koin:koin-androidx-compose:$koin_version"
         ]
 
         glide = [
-                core: "com.github.bumptech.glide:glide:$glide_version",
+                runtime: "com.github.bumptech.glide:glide:$glide_version",
                 kapt: "com.github.bumptech.glide:compiler:$glide_version"
-        ]
-
-        frameworks = [
-                lottie: "com.airbnb.android:lottie:$lottie_version",
-
         ]
 
     }

@@ -59,10 +59,19 @@ inline val <reified T> Flow<ProcessState<T>>.onSuccess: Flow<T?>
                 emit(it.data as? T)
         }
     }
+
 inline val <reified T> Flow<ProcessState<T>>.onFail: Flow<ProcessState.Failed<T>>
     get() = flow {
         this@onFail.collect {
             if (it is ProcessState.Failed<T>)
+                emit(it)
+        }
+    }
+
+inline val <reified T> Flow<ProcessState<T>>.onComplete: Flow<ProcessState.CompletableProcess<T>>
+    get() = flow {
+        this@onComplete.collect {
+            if (it is ProcessState.CompletableProcess)
                 emit(it)
         }
     }

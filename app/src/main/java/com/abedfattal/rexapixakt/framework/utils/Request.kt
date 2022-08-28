@@ -41,7 +41,7 @@ internal inline fun <reified T> onRequestCompleted(
     var errorReason: String? = "Unknown error"
     var data: T? = null
     val className = T::class.java.name
-    var errorCode = -1
+    var errorCode = R.string.unknown_error
 
     try {
 

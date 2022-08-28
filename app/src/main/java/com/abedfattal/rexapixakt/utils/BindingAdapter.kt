@@ -4,17 +4,23 @@ import android.text.TextWatcher
 import android.view.View
 import android.widget.EditText
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.core.widget.addTextChangedListener
 import androidx.databinding.BindingAdapter
 import androidx.lifecycle.MutableLiveData
+import androidx.navigation.NavDirections
 import androidx.navigation.findNavController
+import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.CenterCrop
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
+import com.google.android.material.chip.Chip
 import com.google.android.material.textfield.TextInputLayout
+import kotlin.math.roundToInt
 
 class BindingAdapters {
     companion object {
+
 
         @JvmStatic
         @BindingAdapter("android:url")
@@ -46,6 +52,13 @@ class BindingAdapters {
             error = errorMessage
         }
 
+        @JvmStatic
+        @BindingAdapter("android:onClickNavigateTo")
+        fun View.onClicks(direction: NavDirections) {
+            setOnClickListener {
+                findNavController().navigate(direction)
+            }
+        }
         @JvmStatic
         @BindingAdapter("android:onClickNavigateTo")
         fun View.onClickNavigation(action: Int) {

@@ -1,14 +1,19 @@
 package com.abedfattal.rexapixakt.framework.data
 
-import com.abedfattal.rexapixakt.framework.webservice.pixabay.PixabayModels
-import com.abedfattal.rexapixakt.models.ProcessState
+import androidx.paging.Pager
+import androidx.paging.PagingConfig
+import androidx.paging.PagingData
+import com.abedfattal.rexapixakt.framework.webservice.pixabay.PixabayService
 import com.abedfattal.rexapixakt.models.domain.Image
 import kotlinx.coroutines.flow.Flow
 
 class ImagesRepository(private val remoteDataSource: ImagesRemoteDataSource) {
 
-    fun getImages(): Flow<ProcessState<List<Image>>> {
-        return  remoteDataSource.getImages()
+    fun getImages(): Flow<PagingData<Image>> {
+        return Pager(
+            pagingSourceFactory = { remoteDataSource },
+            config = PagingConfig(pageSize = PixabayService.PAGE_SIZE)
+        ).flow
     }
 
 }

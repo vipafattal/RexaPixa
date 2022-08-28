@@ -1,7 +1,10 @@
 package com.abedfattal.rexapixakt.models.domain
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.parcelize.Parcelize
 
+@Parcelize
 data class Image(
     val id: Int,
     val type: String,
@@ -18,4 +21,13 @@ data class Image(
     val likes: Int,
     val user: String,
     val userImageURL: String,
-)
+) : Parcelable {
+
+    fun withFormattedTags(): Image {
+        return copy(
+            tags =
+            tags.split(",")
+                .joinToString(separator = "  ") { "#${it.trim().replace(' ', '_')}" },
+        )
+    }
+}

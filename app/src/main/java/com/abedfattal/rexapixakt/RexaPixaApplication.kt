@@ -21,6 +21,7 @@ class RexaPixaApplication : Application() {
     }
 
     private fun startKoinService() {
+
         startKoin {
             androidLogger()
             androidContext(this@RexaPixaApplication)

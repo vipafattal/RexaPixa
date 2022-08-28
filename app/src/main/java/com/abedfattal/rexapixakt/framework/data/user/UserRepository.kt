@@ -1,5 +1,6 @@
-package com.abedfattal.rexapixakt.framework.data
+package com.abedfattal.rexapixakt.framework.data.user
 
+import com.abedfattal.rexapixakt.framework.data.user.UserRemoteDataSource
 import com.abedfattal.rexapixakt.models.ProcessState
 import com.abedfattal.rexapixakt.models.domain.User
 import kotlinx.coroutines.flow.Flow

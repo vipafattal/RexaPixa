@@ -1,4 +1,4 @@
-package com.abedfattal.rexapixakt.framework.data
+package com.abedfattal.rexapixakt.framework.data.user
 
 import com.abedfattal.rexapixakt.R
 import com.abedfattal.rexapixakt.framework.exception.EmailAlreadyExistException
