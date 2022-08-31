@@ -27,5 +27,7 @@ The main idea of the challenge is to use Pixabay image API with local user authe
 ### Disclimar 
 The android best practice in the challenge context doesn't mean writing code in the style of the very best architecture in the android world however it means the most suitable solution for the problem we are trying to solve. 
 
+![RexaPixa](app/src/main/res/mipmap-xxxhdpi/ic_launcher.png)
+
 
 
